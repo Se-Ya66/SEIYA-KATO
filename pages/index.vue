@@ -1,36 +1,6 @@
 <template>
 <div id="home">
-    <v-app-bar
-    :color="isView === true ? 'white' : 'transparent'"
-    app
-    flat
-    >
-        <v-toolbar-title :class="isView === true ? 'header-bar-text-scroll' : 'header-bar-text'"></v-toolbar-title>
-            <v-container>
-                <v-toolbar-items>
-                    <v-row
-                    align="center"
-                    justify="center"
-                    >
-                    <nuxt-link class="link" v-scroll-to="'#home'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">HOME</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#about'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">ABOUT</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#works'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">WORKS</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#skills'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">SKILLS</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#contact'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">CONTACT</v-btn>
-                    </nuxt-link>
-                    </v-row>
-                </v-toolbar-items>
-            </v-container>
-    </v-app-bar>
+    <Header />
     <div class="index">
     <div class="header">
         <transition>
@@ -223,11 +193,12 @@
 </template>
 
 <script>
-
+import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
 components: {
+    Header,
     Footer,
 },
 data(){
@@ -290,12 +261,6 @@ methods: {
 }
 .v-enter-to {
     opacity: 1;
-}
-.header-bar-text{
-    color:white;
-}
-.header-bar-text-scroll{
-    color:black;
 }
 .v-btn{
     font-family: 'Montserrat', sans-serif;
@@ -372,6 +337,8 @@ bottom: 5px;
     letter-spacing:2px;
     font-family: 'Old Standard TT', serif;
 }
+
+
 
 
 /* --------------------------------

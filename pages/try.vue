@@ -1,36 +1,6 @@
 <template>
 <div id="home">
-    <v-app-bar
-    :color="isView === true ? 'white' : 'transparent'"
-    app
-    flat
-    >
-        <v-toolbar-title :class="isView === true ? 'header-bar-text-scroll' : 'header-bar-text'"></v-toolbar-title>
-            <v-container>
-                <v-toolbar-items>
-                    <v-row
-                    align="center"
-                    justify="center"
-                    >
-                    <nuxt-link class="link" v-scroll-to="'#home'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">HOME</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#about'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">ABOUT</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#works'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">WORKS</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#skills'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">SKILLS</v-btn>
-                    </nuxt-link>
-                    <nuxt-link class="link" v-scroll-to="'#contact'" to>
-                        <v-btn text :class="isView === true ? 'brack--text' : 'white--text'">CONTACT</v-btn>
-                    </nuxt-link>
-                    </v-row>
-                </v-toolbar-items>
-            </v-container>
-    </v-app-bar>
+    <Header />
     <div class="index">
     <div class="header">
         <transition>
@@ -94,8 +64,7 @@
                             <v-img
                                 :src='worklist.img'
                                 height="225px"
-                            >
-                                
+                            >  
                             </v-img>
                             </v-card>
                             <p class="mt-4 subheading text-center card-title">
@@ -223,12 +192,12 @@
 </template>
 
 <script>
-
+import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
-
 export default {
 components: {
-    Footer,
+    Header,
+    Footer
 },
 data(){
     return{
@@ -301,51 +270,47 @@ methods: {
     font-family: 'Montserrat', sans-serif;
 }
 *{
-margin : 0;
-padding : 0;
+    margin : 0;
+    padding : 0;
 }
 .index {
-background: #151515 url('../images/night.jpg') no-repeat fixed left bottom;
-background-size: cover;
-color: #fff;
-font-size: 1.4rem;
-font-family: 'Montserrat', sans-serif;
+    background: #151515 url('../images/night.jpg') no-repeat fixed left bottom;
+    background-size: cover;
+    color: #fff;
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
 }
 *, *::before, *::after {
 box-sizing: border-box;
 }
-
-
 /* --------------------------------
 * parts
 * -------------------------------- */
 .heading {
-text-align: center;
-position: relative;
-display: inline-block;
-margin: 30px 0 15px;
-padding-bottom: 15px;
-letter-spacing: 3px;
-font-size: 1.5rem;
-font-weight:400;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin: 30px 0 15px;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+    font-weight:400;
 }
 .heading::before,
 .heading::after {
-content: '';
-position: absolute;
-right: 0;
-bottom: 0;
-left: 0;
-border-bottom: 1px solid #999;
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid #999;
 }
 .heading::before {
-bottom: 5px;
+    bottom: 5px;
 }
 .heading-wrapper{
     text-align: center;
 }
-
-
 /* --------------------------------
 * header
 * -------------------------------- */
@@ -353,14 +318,12 @@ bottom: 5px;
     padding: 170px 30px 80px;
     text-align: center;
 }
-
 .site-title {
     text-transform:uppercase;
     line-height:normal;
     font-weight:300;
     color:#fff;
     letter-spacing:4px;
-
 }
 .site-description{
     color:#fff;
@@ -372,7 +335,6 @@ bottom: 5px;
     letter-spacing:2px;
     font-family: 'Old Standard TT', serif;
 }
-
 
 /* --------------------------------
 * about
@@ -403,8 +365,6 @@ bottom: 5px;
     margin-top: 30px;
     line-height:35px;
 }
-
-
 /* --------------------------------
 * works
 * -------------------------------- */
@@ -435,8 +395,6 @@ bottom: 5px;
     color:#d3b572;
     margin-bottom: 5px;
 }
-
-
 /* --------------------------------
 * skills
 * -------------------------------- */
@@ -451,7 +409,6 @@ bottom: 5px;
     margin: 50px auto 0;
     table-layout: fixed;
 }
-
 .skillset {
 	background:#f8f8f8;
 	display:table;
@@ -482,7 +439,6 @@ bottom: 5px;
 	-o-transition-property:width, background-color;
 	transition-property:width, background-color;
 }
-
 .skillbar-title {
 	position:absolute;
 	top:-27px;
@@ -494,12 +450,10 @@ bottom: 5px;
     color:#5b4c5c;
     display:block;
 }
-
 .skillbar-title span {
     display:inline-block;
     margin-left: 20px;
 }
-
 .skillbar-bar-html {
 	height:7px;
 	width:44%;
@@ -520,7 +474,6 @@ bottom: 5px;
 	width:10%;
 	background:#e88988;
 }
-
 .skill-bar-percent {
 	position:absolute;
 	top:-24px;
@@ -533,7 +486,6 @@ bottom: 5px;
     font-size:15px;
     line-height:35px;
 }
-
 /* --------------------------------
 * contact
 * -------------------------------- */
@@ -549,10 +501,6 @@ margin: 50px auto 0;
 .send-btn{
     margin-top: 20px;
 }
-
-
-
-
 /* --------------------------------
 * footer
 * -------------------------------- */
@@ -560,8 +508,6 @@ margin: 50px auto 0;
 padding: 12px 0;
 font-size: 1.3rem;
 }
-
-
 /* --------------------------------
 * smart phone
 * -------------------------------- */
@@ -581,7 +527,6 @@ font-size: 1.3rem;
     .button:hover {
     opacity: 1;
     }
-
     /* --- header --- */
     .header {
     padding-top: 60px;
@@ -599,12 +544,10 @@ font-size: 1.3rem;
     margin-top: 35px;
     font-size: 5rem;
     }
-
     /* --- about --- */
     .about-text {
     line-height: 1.8;
     }
-
     /* --- works --- */
     .works-wrapper,
     .work-box {
@@ -622,7 +565,6 @@ font-size: 1.3rem;
     background-size: cover;
     transform: none;
     }
-
     /* --- skills --- */
     .skills-wrapper,
     .skill-box {
@@ -640,7 +582,6 @@ font-size: 1.3rem;
     .skill-text {
     margin: 0;
     }
-
     /* --- contact --- */
     .contact {
     padding-bottom: 80px;
