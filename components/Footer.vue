@@ -10,7 +10,9 @@
                         <v-icon large color="white" class="icon">mdi-facebook</v-icon>
                     </v-col>
                     <v-col md="1">
-                        <v-icon large color="white" class="icon">mdi-github</v-icon>
+                        <a href="https://github.com/Se-Ya66">
+                            <v-icon large color="white" class="icon">mdi-github</v-icon>
+                        </a>
                     </v-col>
                 </v-row>
                 <v-row justify="center" align="center" class="copyright">
@@ -32,10 +34,11 @@ export default {
 </script>
 
 <style>
-
+a{
+    text-decoration: none;
+}
 .link{
     text-decoration: none;
-    
 }
 .copyright{
     margin-bottom: 20px;
