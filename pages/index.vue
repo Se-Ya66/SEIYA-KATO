@@ -17,17 +17,17 @@
                 <div class="about-wrapper">
                 <v-container>
                     <v-row justify="space-around">
-                    <v-col cols="6!">
+                    <v-col md="8">
                         <h4 class="my-name">Seiya Kato</h4>
                         <p class="about-subtxt">I'm aiming to be a front end engineer</p>
                         <p class="about-text">
                         初めまして。ご覧いただきありがとうございます。<br>
-                        私は名古屋在住の営業マンでwebサイトを作成することに興味を持ち<br>
+                        名古屋在住の営業マンでwebサイトを作成することに興味を持ち<br>
                         フロントエンドエンジニアを目指し日々勉強しています。<br>
                         スタイリッシュで少しのユーモアがあるサイト制作をしていきたいです。
                         </p>
                     </v-col>  
-                    <v-col cols="4">
+                    <v-col>
                         <img src="../images/img-me.jpg">
                     </v-col>
                     </v-row>
@@ -77,12 +77,14 @@
                                                         <v-col>
                                                             <h4 class="work-item">Concept</h4>
                                                             <p class="work-description">{{worklist.description}}</p>
-                                                            <h4 class="work-item">Language</h4>
-                                                            <p>{{worklist.language}}</p>
+                                                            <h4 class="work-item">Skills</h4>
+                                                            <p>{{worklist.Skills}}</p>
                                                             <h4 class="work-item">Site</h4>
                                                             <p>{{worklist.url}}</p>
-
-                                                            <p class="github"><v-icon>mdi-github</v-icon>GitHub</p>
+                                                            <a :href="worklist.github">
+                                                                <v-icon>mdi-github</v-icon>
+                                                                <span class="github-link">GitHub</span>
+                                                            </a>
                                                         </v-col>
                                                         <v-col>
                                                             <img :src='worklist.img'>
@@ -117,9 +119,9 @@
                             <v-col>
                                 <p class="skill-text">
                                 HTML/CSSと並行してJavascriptを学びつつ徐々にJQueryに移行していきましたが
-                                Vueを使用することでの多くの利点を知り、現在はNuxtをメインに使用しています。<br>
-                                PHPは問合せフォームの実装のために使用しましたが今後も継続的に<br>
-                                学び、バックエンドの言語も習得していきたいと考えています。
+                                Vueを使用することでの多くの利点を知り現在はNuxtをメインに使用しています。<br>
+                                PHPやMySQLは現在基礎を学んだ段階ですが今後も継続的に学ぶつもりです。<br>
+                                浮かんだアイディアを具現化するためにも幅広くスキルを習得していきたいと考えています。
                                 </p>
                             </v-col>
                             <v-col>
@@ -148,6 +150,13 @@
                                 <div class="skillbar clearfix " data-percent="52%">
                                     <div class="skillbar-title">PHP<span >10%</span></div>
                                     <div class="skillbar-bar-php"></div>
+                                    <div class="skill-bar-percent"></div>
+                                </div> <!-- End Skill Bar -->  
+                                </v-row>
+                                <v-row justify="center">
+                                <div class="skillbar clearfix " data-percent="52%">
+                                    <div class="skillbar-title">MySQL<span >10%</span></div>
+                                    <div class="skillbar-bar-mysql"></div>
                                     <div class="skill-bar-percent"></div>
                                 </div> <!-- End Skill Bar -->  
                                 </v-row>
@@ -196,25 +205,28 @@ data(){
                 title: 'SEIYA KATO',
                 dialog:false,
                 img: require('../images/nightmin.jpg'),
-                description:'実績を載せられるプラットフォームを作りたかったため、制作しました。HTML/CSSと並行してJavascriptを学びつつ徐々にJQueryに移行していきましたが',
-                language:'HTML /CSS /Nuxt.js /Vuetify',
+                description:'制作物を掲載するための媒体が必要と感じ、制作しました。レイアウトやデザインに関しては見やすさを追求しシンプルにまとめています。現在は最低限の機能しか実装していないため自身の技術力の向上と共にリッチ化を図るべく徐々に手を加えていけたらと思っています。',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify',
                 url:'https://www.google.com',
+                github:'https://github.com/Se-Ya66/SEIYA-KATO'
             },
             {
                 title: 'NEO-SOUL SUGGESTER',
                 dialog:false,
                 img: require('../images/peoplemin.jpg'),
-                description:'実績を載せられるプラットフォームを作りたかったため、制作しました',
-                language:'HTML /CSS /Nuxt.js /Vuetify',
+                description:'大好きな音楽ジャンルの１つであるネオソウルの魅力を紹介する目的で制作しました。アーティストのデータベースだけでなく個人的におすすめな曲紹介ページも用意しています。サイト内の音源は全てspotifyのリンクより試聴可能です。',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify',
                 url:'https://www.google.com',
+                github:'https://github.com/Se-Ya66/NEOSOUL-SUGGESTER'
             },
             {
                 title:"MY Todo",
                 dialog:false,
                 img: require('../images/todomin.jpg'),
-                description:'実績を載せられるプラットフォームを作りたかったため、制作しました',
-                language:'HTML /CSS /Nuxt.js /Vuetify',
+                description:'学習を通じて得たスキルを試す目的で制作しました。自身では初の制作物となるためVuetifyの各種UIコンポーネントの使用やFirebaseでのログイン、データの保管など苦労する点は多々ありましたが基礎は学べたと感じています。',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify /Firebase',
                 url:'https://www.google.com',
+                github:'https://github.com/Se-Ya66/My-Todo'
             }
         ]
     }
@@ -263,6 +275,9 @@ methods: {
 }
 *, *::before, *::after {
     box-sizing: border-box;
+}
+a{
+    color:#fff;
 }
 /* --------------------------------
 * parts
@@ -385,6 +400,9 @@ methods: {
     color:#d3b572;
     margin-bottom: 5px;
 }
+.github-link{
+    color: inherit;
+}
 /* --------------------------------
 * skills
 * -------------------------------- */
@@ -461,6 +479,11 @@ methods: {
 }
 .skillbar-bar-php {
 	height:7px;
+	width:10%;
+	background:#e88988;
+}
+.skillbar-bar-mysql{
+    height:7px;
 	width:10%;
 	background:#e88988;
 }
