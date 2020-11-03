@@ -5,33 +5,55 @@
         app
         flat
         >
+            <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-app-bar-nav-icon 
+                    v-bind="attrs"
+                    v-on="on"
+                    :color="isView === true ? 'black' : 'white'"
+                    class="hamb">
+                    </v-app-bar-nav-icon>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(item, i) in items"
+                    :key="i"
+                    >
+                        <nuxt-link  v-scroll-to="item.link" to>
+                            <v-list-item-title
+                            class="link">{{ item.title }}</v-list-item-title>
+                        </nuxt-link>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
             <v-container>
-                <v-toolbar-items>
+                <v-toolbar-items
+                class="nav">
                     <v-row
                     align="center"
                     justify="center"
                     >
-                        <v-col cols="1">
+                        <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#home'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">HOME</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#about'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">ABOUT</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#works'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">WORKS</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#skills'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">SKILLS</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#contact'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">CONTACT</p>
                             </nuxt-link>
@@ -49,6 +71,29 @@ export default {
         return{
         isView: false,
         show: false,
+        items:[
+            {   
+                title:'HOME',
+                link:'#home' 
+            },
+            {   
+                title:'ABOUT',
+                link:'#about' 
+            },
+            {   
+                title:'WORKS',
+                link:'#works' 
+            },
+            {   
+                title:'SKILLS',
+                link:'#skills' 
+            },
+            {   
+                title:'CONTACT',
+                link:'#contact' 
+            },
+        
+        ],
         }
     },
     mounted() {
@@ -71,6 +116,13 @@ export default {
 </script>
 
 <style>
+.link{
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+}
+.white-color{
+    color:white;
+}
 .white-text,
 .black-text{
     color:#fff;
@@ -120,6 +172,16 @@ export default {
 .black-text:before,.black-text:hover:before,
 .black-text:after,.black-text:hover:after{
     border-bottom: 2px solid #000;
+}
+@media (min-width:768px) {
+    .hamb{
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .nav{
+        display: none;
+    }
 }
 
 </style>

@@ -3,13 +3,13 @@
         <v-footer color="black" >
             <v-container class="pa-6 text-center">
                 <v-row  class="icons" justify="center" align="center">
-                    <v-col md="1">
+                    <v-col md="1" sm="1">
                         <v-icon large color="white" class="icon">mdi-twitter</v-icon>
                     </v-col >
-                    <v-col md="1">
+                    <v-col md="1" sm="1">
                         <v-icon large color="white" class="icon">mdi-facebook</v-icon>
                     </v-col>
-                    <v-col md="1">
+                    <v-col md="1" sm="1">
                         <a href="https://github.com/Se-Ya66">
                             <v-icon large color="white" class="icon">mdi-github</v-icon>
                         </a>

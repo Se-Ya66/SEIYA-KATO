@@ -116,7 +116,7 @@
                 <div class="skills-wrapper">
                     <v-container>
                         <v-row>
-                            <v-col>
+                            <v-col md="6" cols="12">
                                 <p class="skill-text">
                                 HTML/CSSと並行してJavascriptを学びつつ徐々にJQueryに移行していきましたが
                                 Vueを使用することでの多くの利点を知り現在はNuxtをメインに使用しています。<br>
@@ -124,7 +124,7 @@
                                 浮かんだアイディアを具現化するためにも幅広くスキルを習得していきたいと考えています。
                                 </p>
                             </v-col>
-                            <v-col>
+                            <v-col md="6" cols="12">
                                 <v-row justify="center">
                                 <div class="skillbar clearfix " data-percent="94%">
                                     <div class="skillbar-title">HTML/CSS<span >44%</span></div>
@@ -251,6 +251,9 @@ methods: {
 </script>
 
 <style>
+#home{
+    max-width: 100%;
+}
 .v-enter-active {
     transition: opacity 3s;
 }
@@ -268,7 +271,7 @@ methods: {
     padding : 0;
 }
 .index {
-
+    box-sizing : border-box;
     color: #fff;
     font-size: 1.4rem;
     font-family: 'Montserrat', sans-serif;  
@@ -316,11 +319,11 @@ a{
     background: #151515 url('../images/night.jpg') center center / cover no-repeat fixed;
     background-size: cover;
     height: 100vh;
-    position:relative;
+    
 }
 .site-wrapper{
-    position:absolute ;
-	left:40%;
+    position:absolute;
+	left:37%;
 	top:40%;
 }
 .site-title {
@@ -401,7 +404,7 @@ a{
     margin-bottom: 5px;
 }
 .github-link{
-    color: inherit;
+    color: #fff;
 }
 /* --------------------------------
 * skills
@@ -412,40 +415,17 @@ a{
     color: #333;
 }
 .skills-wrapper {
-    display: table;
-    width: 80%;
     margin: 50px auto 0;
-    table-layout: fixed;
-}
-.skillset {
-	background:#f8f8f8;
-	display:table;
-	width:100%;
-}
-.skillset .container{
-	padding-top:66px ;
-	padding-bottom:64px ;
 }
 .skillbar {
 	position:relative;
 	display:block;
 	margin-bottom:53px;
-	width:50%;
+	width:80%;
 	background:#e2e1e2;
 	height:7px;
 	border-radius:3px;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	-webkit-transition:0.4s linear;
-	-moz-transition:0.4s linear;
-	-ms-transition:0.4s linear;
-	-o-transition:0.4s linear;
-	transition:0.4s linear;
-	-webkit-transition-property:width, background-color;
-	-moz-transition-property:width, background-color;
-	-ms-transition-property:width, background-color;
-	-o-transition-property:width, background-color;
-	transition-property:width, background-color;
+	
 }
 .skillbar-title {
 	position:absolute;
@@ -516,93 +496,97 @@ a{
 }
 
 
-/* --------------------------------
-* footer
-* -------------------------------- */
-.footer {
-    padding: 12px 0;
-    font-size: 1.3rem;
-}
+
 /* --------------------------------
 * smart phone
 * -------------------------------- */
 @media (max-width: 1024px) {
     body {
-    background-image: none;
+        background-image: none;
+    }
+    .header{
+        position: relative;
+    }
+    .site-wrapper{
+        text-align: center;
+        position:absolute;
+        left:37%;
+        top:40%;
     }
 }
 @media (max-width: 768px) {
-    body {
-    font-size: 1.3rem;
+    
+    .header{
+        position: relative;
+        
     }
+    .site-wrapper{
+        text-align: center;
+        position:absolute;
+        left:30%;
+        top:40%;
+    }
+}
+@media (max-width: 767px) {
+    
+    body {
+        font-size: 1.3rem;
+    }
+    
     .heading {
-    margin-top: 20px;
-    font-size: 2.5rem;
+        margin-top: 20px;
+        font-size: 2.5rem;
     }
     .button:hover {
-    opacity: 1;
+        opacity: 1;
     }
     /* --- header --- */
-    .header {
-    padding-top: 60px;
+    .header{
+        position: relative;
     }
-    .site-title-sub {
-    font-size: 1.7rem;
+    .site-wrapper{
+        text-align: center;
+        position:absolute;
+        left:25%;
+        top:40%;
     }
-    .site-title-sub::before,
-    .site-title-sub::after {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
+    .site-description{
+        font-size: 13px;
     }
     .site-title {
-    margin-top: 35px;
-    font-size: 5rem;
+        font-size: 26px;
     }
     /* --- about --- */
     .about-text {
-    line-height: 1.8;
+        line-height: 1.8;
     }
     /* --- works --- */
     .works-wrapper,
     .work-box {
-    display: block;
+        display: block;
     }
     .work-image {
-    display: none;
+        display: none;
     }
     .work-description {
-    position: relative;
+        position: relative;
     }
     .work-box::after {
-    top: 0;
-    height: 100%;
-    background-size: cover;
-    transform: none;
+        top: 0;
+        height: 100%;
+        background-size: cover;
+        transform: none;
     }
     /* --- skills --- */
-    .skills-wrapper,
-    .skill-box {
-    display: block;
-    }
-    .skill-box {
-    margin: 40px auto;
-    }
-    .skill-icon {
-    width: 100px;
-    height: 100px;
-    font-size: 5rem;
-    line-height: 92px;
-    }
-    .skill-text {
-    margin: 0;
-    }
+    .skillbar {
+        width:90%;
+}
     /* --- contact --- */
     .contact {
-    padding-bottom: 80px;
+        padding-bottom: 80px;
     }
     .contact-form {
-    width: 80%;
+        width: 80%;
     }
 }
 </style>
