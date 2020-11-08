@@ -80,7 +80,9 @@
                                                             <h4 class="work-item">Skills</h4>
                                                             <p>{{worklist.Skills}}</p>
                                                             <h4 class="work-item">Site</h4>
-                                                            <p>{{worklist.url}}</p>
+                                                            <a :href="worklist.url" class="site-url">
+                                                                <span>{{worklist.url}}</span>
+                                                            </a>
                                                             <a :href="worklist.github">
                                                                 <v-icon>mdi-github</v-icon>
                                                                 <span class="github-link">GitHub</span>
@@ -206,8 +208,8 @@ data(){
                 dialog:false,
                 img: require('../images/nightmin.jpg'),
                 description:'制作物を掲載するための媒体が必要と感じ、制作しました。レイアウトやデザインに関しては見やすさを追求しシンプルにまとめています。現在は最低限の機能しか実装していないため自身の技術力の向上と共にリッチ化を図るべく徐々に手を加えていけたらと思っています。',
-                Skills:'HTML /CSS /Nuxt.js /Vuetify',
-                url:'https://www.google.com',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify /Netlify',
+                url:'https://seiyakato.netlify.app/',
                 github:'https://github.com/Se-Ya66/SEIYA-KATO'
             },
             {
@@ -215,8 +217,8 @@ data(){
                 dialog:false,
                 img: require('../images/peoplemin.jpg'),
                 description:'大好きな音楽ジャンルの１つであるネオソウルの魅力を紹介する目的で制作しました。アーティストのデータベースだけでなく個人的におすすめな曲紹介ページも用意しています。サイト内の音源は全てspotifyのリンクより試聴可能です。',
-                Skills:'HTML /CSS /Nuxt.js /Vuetify',
-                url:'https://www.google.com',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify /Netlify',
+                url:'https://neosoul-suggester.netlify.app/',
                 github:'https://github.com/Se-Ya66/NEOSOUL-SUGGESTER'
             },
             {
@@ -224,8 +226,8 @@ data(){
                 dialog:false,
                 img: require('../images/todomin.jpg'),
                 description:'学習を通じて得たスキルを試す目的で制作しました。自身では初の制作物となるためVuetifyの各種UIコンポーネントの使用やFirebaseでのログイン、データの保管など苦労する点は多々ありましたが基礎は学べたと感じています。',
-                Skills:'HTML /CSS /Nuxt.js /Vuetify /Firebase',
-                url:'https://www.google.com',
+                Skills:'HTML /CSS /Nuxt.js /Vuetify /Firebase /Netlify',
+                url:'https://mytodocards.netlify.app/',
                 github:'https://github.com/Se-Ya66/My-Todo'
             }
         ]
@@ -251,6 +253,9 @@ methods: {
 </script>
 
 <style>
+a{
+    color:#fff;
+}
 #home{
     max-width: 100%;
 }
@@ -379,6 +384,7 @@ a{
 .works {
     padding: 80px 0;
     background-color: #383634;
+    color: #fff;
 }
 .card-title{
     padding:16px 30px;
@@ -405,6 +411,15 @@ a{
 }
 .github-link{
     color: #fff;
+    text-decoration:underline;
+}
+.site-url{
+    display: block;
+    margin-bottom: 15px;
+}
+.site-url span{
+    color: #fff;
+    text-decoration:underline;
 }
 /* --------------------------------
 * skills
@@ -498,7 +513,7 @@ a{
 
 
 /* --------------------------------
-* smart phone
+* responsive
 * -------------------------------- */
 @media (max-width: 1024px) {
     body {
