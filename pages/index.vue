@@ -70,11 +70,11 @@
                                         </template>
                                             <v-card dark>
                                                 <v-card-title class="headline">
-                                                <h1>{{worklist.title}}</h1>
+                                                <h1 class="work-title">{{worklist.title}}</h1>
                                                 </v-card-title>
                                                 <v-container>
                                                     <v-row>
-                                                        <v-col>
+                                                        <v-col md="6" cols="12">
                                                             <h4 class="work-item">Concept</h4>
                                                             <p class="work-description">{{worklist.description}}</p>
                                                             <h4 class="work-item">Skills</h4>
@@ -88,8 +88,8 @@
                                                                 <span class="github-link">GitHub</span>
                                                             </a>
                                                         </v-col>
-                                                        <v-col>
-                                                            <img :src='worklist.img'>
+                                                        <v-col md="6" cols="12">
+                                                            <img :src='worklist.img' class="work-img">
                                                         </v-col>
                                                     </v-row>
                                                 </v-container>
@@ -421,6 +421,10 @@ a{
     color: #fff;
     text-decoration:underline;
 }
+.work-img{
+    width:100%;
+}
+
 /* --------------------------------
 * skills
 * -------------------------------- */
@@ -544,10 +548,6 @@ a{
 }
 @media (max-width: 767px) {
     
-    body {
-        font-size: 1.3rem;
-    }
-    
     .heading {
         margin-top: 20px;
         font-size: 2.5rem;
@@ -576,21 +576,12 @@ a{
         line-height: 1.8;
     }
     /* --- works --- */
-    .works-wrapper,
-    .work-box {
-        display: block;
-    }
-    .work-image {
-        display: none;
-    }
+    
     .work-description {
         position: relative;
     }
-    .work-box::after {
-        top: 0;
-        height: 100%;
-        background-size: cover;
-        transform: none;
+    .work-title{
+        font-size:25px;
     }
     /* --- skills --- */
     .skillbar {
@@ -603,5 +594,6 @@ a{
     .contact-form {
         width: 80%;
     }
+    
 }
 </style>
