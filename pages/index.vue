@@ -3,8 +3,8 @@
         <Header />
         <div class="index">
             <div class="header">
-                <transition>
-                    <div v-if="show" class="site-wrapper">
+                <transition name="header">
+                    <div v-show="show" class="site-wrapper">
                         <h1 class="site-title">SEIYA KATO</h1>
                         <h3 class="site-description">Welcome to my portfolio-site.</h3>
                     </div>
@@ -12,23 +12,31 @@
             </div>
             <section class="about">
                 <div class="heading-wrapper">
-                    <h2 class="heading" id="about">ABOUT</h2>
+                    <h2 class="heading" id="about" >ABOUT</h2>
                 </div>
                 <div class="about-wrapper">
                 <v-container>
                     <v-row justify="space-around">
                     <v-col md="8">
-                        <h4 class="my-name">Seiya Kato</h4>
-                        <p class="about-subtxt">I'm aiming to be a front end engineer</p>
-                        <p class="about-text">
-                        初めまして。ご覧いただきありがとうございます。<br>
-                        名古屋在住の営業マンでwebサイトを作成することに興味を持ち<br>
-                        フロントエンドエンジニアを目指し日々勉強しています。<br>
-                        スタイリッシュで少しのユーモアがあるサイト制作をしていきたいです。
-                        </p>
+                        <transition name="name">
+                            <div v-show="visible">
+                                <h4 class="my-name">Seiya Kato</h4>
+                                <p class="about-subtxt">I'm aiming to be a front end engineer</p>
+                            </div>
+                        </transition>
+                        <transition name="text">
+                            <p class="about-text" v-show="visible">
+                            初めまして。ご覧いただきありがとうございます。<br>
+                            名古屋在住の営業マンでwebサイトを作成することに興味を持ち<br>
+                            フロントエンドエンジニアを目指し日々勉強しています。<br>
+                            スタイリッシュで少しのユーモアがあるサイト制作をしていきたいです。
+                            </p>
+                        </transition>
                     </v-col>  
                     <v-col>
-                        <img src="../images/img-me.jpg">
+                        <transition name="img">
+                            <img src="../images/img-me.jpg" v-show="visible">
+                        </transition>
                     </v-col>
                     </v-row>
                 </v-container>
@@ -110,6 +118,7 @@
                         </v-row>
                     </v-container>
                 </div>
+            
             </section>
             <section class="skills">
                 <div class="heading-wrapper">
@@ -119,14 +128,18 @@
                     <v-container>
                         <v-row>
                             <v-col md="6" cols="12">
-                                <p class="skill-text">
+                                <transition name="text">
+                                <p class="skill-text" v-show="visible2">
                                 HTML/CSSと並行してJavascriptを学びつつ徐々にJQueryに移行していきましたが
                                 Vueを使用することでの多くの利点を知り現在はNuxtをメインに使用しています。<br>
                                 PHPやMySQLは現在基礎を学んだ段階ですが今後も継続的に学ぶつもりです。<br>
                                 浮かんだアイディアを具現化するためにも幅広くスキルを習得していきたいと考えています。
                                 </p>
+                                </transition>
                             </v-col>
                             <v-col md="6" cols="12">
+                                <transition name="img">
+                                <div v-show="visible2">
                                 <v-row justify="center">
                                 <div class="skillbar clearfix " data-percent="94%">
                                     <div class="skillbar-title">HTML/CSS<span >44%</span></div>
@@ -162,6 +175,8 @@
                                     <div class="skill-bar-percent"></div>
                                 </div> <!-- End Skill Bar -->  
                                 </v-row>
+                                </div>
+                                </transition>
                             </v-col>   
                         </v-row>
                     </v-container>
@@ -171,10 +186,11 @@
                 <div class="heading-wrapper">
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
-                <v-form class="contact-form">
-                    <v-text-field label="NAME" filled clearable color="grey darken-3"></v-text-field>
-                    <v-text-field label="E-mail" filled clearable color="grey darken-3"></v-text-field>
-                    <v-textarea label="MESSAGE" filled clearable color="grey darken-3"></v-textarea>
+                <v-form name="contact" method="POST" class="contact-form" netlify >
+                    <v-text-field label="NAME" name="name" filled clearable color="grey darken-3"></v-text-field>
+                    <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3"></v-text-field>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3"></v-textarea>
                     <v-row justify="center">
                         <v-btn
                         x-large
@@ -202,6 +218,8 @@ data(){
     return{
         isView: false,
         show:false,
+        visible:false,
+        visible2:false,
         worklists:[
             {
                 title: 'SEIYA KATO',
@@ -244,6 +262,14 @@ methods: {
         } else {
         this.isView = false;
         }
+        if (!this.visible) {
+        const top = this.$el.getBoundingClientRect().top;
+        this.visible = top < window.innerHeight + 100;
+        }
+        if (!this.visible2) {
+        const top = this.$el.getBoundingClientRect().top;
+        this.visible2 = top < window.innerHeight + 100;
+        }
     },
     change_class: function() {
     this.isView = !this.isView
@@ -258,15 +284,6 @@ a{
 }
 #home{
     max-width: 100%;
-}
-.v-enter-active {
-    transition: opacity 3s;
-}
-.v-enter {
-    opacity: 0;
-}
-.v-enter-to {
-    opacity: 1;
 }
 .v-btn{
     font-family: 'Montserrat', sans-serif;
@@ -287,6 +304,47 @@ a{
 a{
     color:#fff;
 }
+/* --------------------------------
+* transition
+* -------------------------------- */
+.header-enter-active {
+    transition: opacity 4s;
+}
+.header-enter {
+    opacity: 0;
+}
+.header-enter-to {
+    opacity: 1;
+}
+
+.text-enter-active {
+    transition: opacity 3s;
+}
+.text-enter {
+    opacity: 0;
+}
+.text-enter-to {
+    opacity: 1;
+}
+
+.name-enter-active {
+    transition: opacity 2s;
+}
+.name-enter {
+    opacity: 0;
+}
+.name-enter-to {
+    opacity: 1;
+}
+
+.img-enter-active, .img-leave-active {
+    transform: translate(0px, 0px);
+    transition: transform 1s cubic-bezier(0, 0, 0.2, 1) 0s;
+}
+.img-enter, .img-leave-to {
+    transform: translateX(100vw) translateX(0px);
+}
+
 /* --------------------------------
 * parts
 * -------------------------------- */
@@ -318,13 +376,16 @@ a{
 /* --------------------------------
 * header
 * -------------------------------- */
-.header {
-    position:relative;
-    text-align: center;
-    background: #151515 url('../images/night.jpg') center center / cover no-repeat fixed;
-    background-size: cover;
+
+.header{
+    width: 100%;
     height: 100vh;
-    
+    padding-top: 50%;
+    position:relative;
+    background: url('../images/night.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 .site-wrapper{
     position:absolute;
@@ -424,7 +485,6 @@ a{
 .work-img{
     width:100%;
 }
-
 /* --------------------------------
 * skills
 * -------------------------------- */
@@ -513,18 +573,19 @@ a{
 .send-btn{
     margin-top: 20px;
 }
-
-
-
 /* --------------------------------
 * responsive
 * -------------------------------- */
 @media (max-width: 1024px) {
-    body {
-        background-image: none;
-    }
     .header{
-        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding-top: 50%;
+        position:relative;
+        background: url('../images/night-m.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
     .site-wrapper{
         text-align: center;
@@ -537,7 +598,6 @@ a{
     
     .header{
         position: relative;
-        
     }
     .site-wrapper{
         text-align: center;
@@ -550,14 +610,18 @@ a{
     
     .heading {
         margin-top: 20px;
-        font-size: 2.5rem;
-    }
-    .button:hover {
-        opacity: 1;
+        font-size: 1.5rem;
     }
     /* --- header --- */
     .header{
-        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding-top: 50%;
+        position:relative;
+        background: url('../images/night-s.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
     .site-wrapper{
         text-align: center;
@@ -576,10 +640,7 @@ a{
         line-height: 1.8;
     }
     /* --- works --- */
-    
-    .work-description {
-        position: relative;
-    }
+
     .work-title{
         font-size:25px;
     }
