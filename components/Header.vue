@@ -29,7 +29,7 @@
             </v-menu>
             <v-container>
                 <v-toolbar-items
-                class="d-sm-none nav">
+                class="d-xs-none nav">
                     <v-row
                     align="center"
                     justify="center"
