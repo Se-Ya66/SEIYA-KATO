@@ -33,6 +33,7 @@
                     <v-row
                     align="center"
                     justify="center"
+                    class="d-xs-none"
                     >
                         <v-col cols="1" md="1" sm="2">
                             <nuxt-link class="link" v-scroll-to="'#home'" to>
