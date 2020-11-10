@@ -186,7 +186,7 @@
                 <div class="heading-wrapper">
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
-                <v-form name="contact" method="POST" class="contact-form" netlify >
+                <v-form name="contact" method="POST" class="contact-form" data-netlify="true" >
                     <input type="hidden" name="form-name" value="contact" />
                     <v-text-field label="NAME" name="name" filled clearable color="grey darken-3"></v-text-field>
                     <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3"></v-text-field>
