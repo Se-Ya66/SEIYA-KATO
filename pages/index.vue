@@ -17,7 +17,7 @@
                 <div class="about-wrapper">
                 <v-container>
                     <v-row justify="space-around">
-                    <v-col md="8">
+                    <v-col md="6">
                         <transition name="name">
                             <div v-show="visible">
                                 <h4 class="my-name">Seiya Kato</h4>
@@ -33,7 +33,7 @@
                             </p>
                         </transition>
                     </v-col>  
-                    <v-col>
+                    <v-col md="4">
                         <transition name="img">
                             <img src="../images/img-me.jpg" v-show="visible">
                         </transition>

@@ -11,7 +11,8 @@
                     v-bind="attrs"
                     v-on="on"
                     :color="isView === true ? 'black' : 'white'"
-                    class="hamb">
+                    class="d-sm-none hamb"
+                    >
                     </v-app-bar-nav-icon>
                 </template>
                 <v-list>
@@ -28,7 +29,7 @@
             </v-menu>
             <v-container>
                 <v-toolbar-items
-                class="nav">
+                class="d-xs-none nav">
                     <v-row
                     align="center"
                     justify="center"
@@ -183,5 +184,4 @@ export default {
         display: none;
     }
 }
-
 </style>
