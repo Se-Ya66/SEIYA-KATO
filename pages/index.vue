@@ -187,9 +187,9 @@
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
                 <v-form name="contact" method="POST" class="contact-form" netlify >
+                    <input type="hidden" name="form-name" value="contact" />
                     <v-text-field label="NAME" name="name" filled clearable color="grey darken-3"></v-text-field>
                     <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3"></v-text-field>
-                    <input type="hidden" name="form-name" value="contact" />
                     <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3"></v-textarea>
                     <v-row justify="center">
                         <v-btn
