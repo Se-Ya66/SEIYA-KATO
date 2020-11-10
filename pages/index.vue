@@ -195,6 +195,7 @@
                         <v-btn
                         x-large
                         class="send-btn"
+                        @click="submit"
                         >
                         SEND MESSAGE
                         </v-btn>
