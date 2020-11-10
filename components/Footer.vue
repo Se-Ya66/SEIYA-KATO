@@ -4,10 +4,14 @@
             <v-container class="pa-6 text-center">
                 <v-row  class="icons" justify="center" align="center">
                     <v-col md="1" sm="1">
-                        <v-icon large color="white" class="icon">mdi-twitter</v-icon>
+                        <a href="https://twitter.com/s_kato66">
+                            <v-icon large color="white" class="icon">mdi-twitter</v-icon>
+                        </a>
                     </v-col >
                     <v-col md="1" sm="1">
-                        <v-icon large color="white" class="icon">mdi-facebook</v-icon>
+                        <a href="https://www.facebook.com/profile.php?id=100057343186398">
+                            <v-icon large color="white" class="icon">mdi-facebook</v-icon>
+                        </a>
                     </v-col>
                     <v-col md="1" sm="1">
                         <a href="https://github.com/Se-Ya66">
