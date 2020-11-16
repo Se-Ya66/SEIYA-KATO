@@ -195,7 +195,7 @@
                         <v-btn
                         x-large
                         class="send-btn"
-                        @click="submit"
+                        
                         >
                         SEND MESSAGE
                         </v-btn>
@@ -268,9 +268,10 @@ methods: {
         this.visible = top < window.innerHeight + 100;
         }
         if (!this.visible2) {
-        const top = this.$el.getBoundingClientRect().top;
+        const top = document.querySelector('.skills-wrapper').getBoundingClientRect().top;
         this.visible2 = top < window.innerHeight + 100;
         }
+        console.log(this.$el);
     },
     change_class: function() {
     this.isView = !this.isView

@@ -35,27 +35,27 @@
                     justify="center"
                     class="d-xs-none"
                     >
-                        <v-col cols="1" md="1" sm="2">
+                        <v-col cols="1" md="1" sm="2" class="d-xs-none">
                             <nuxt-link class="link" v-scroll-to="'#home'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">HOME</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1" md="1" sm="2">
+                        <v-col cols="1" md="1" sm="2" class="d-xs-none">
                             <nuxt-link class="link" v-scroll-to="'#about'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">ABOUT</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1" md="1" sm="2">
+                        <v-col cols="1" md="1" sm="2" class="d-xs-none">
                             <nuxt-link class="link" v-scroll-to="'#works'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">WORKS</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1" md="1" sm="2">
+                        <v-col cols="1" md="1" sm="2" class="d-xs-none">
                             <nuxt-link class="link" v-scroll-to="'#skills'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">SKILLS</p>
                             </nuxt-link>
                         </v-col>
-                        <v-col cols="1" md="1" sm="2">
+                        <v-col cols="1" md="1" sm="2" class="d-xs-none">
                             <nuxt-link class="link" v-scroll-to="'#contact'" to>
                                 <p text :class="isView === true ? 'black-text' : 'white-text'">CONTACT</p>
                             </nuxt-link>
