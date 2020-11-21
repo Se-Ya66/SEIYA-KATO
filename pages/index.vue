@@ -186,7 +186,7 @@
                 <div class="heading-wrapper">
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
-                <v-form name="contact" method="POST" class="contact-form">
+                <div class="contact-form">
                     <v-text-field label="NAME" name="name" filled clearable color="grey darken-3" required></v-text-field>
                     <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3" required></v-text-field>
                     <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3" required></v-textarea>
@@ -200,7 +200,7 @@
                         SEND MESSAGE
                         </v-btn>
                     </v-row>
-                </v-form>
+                </div>
             </section>
             <Footer />
         </div>
