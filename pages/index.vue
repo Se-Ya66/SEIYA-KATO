@@ -186,16 +186,16 @@
                 <div class="heading-wrapper">
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
-                <v-form name="contact" method="POST" class="contact-form" data-netlify="true" >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <v-text-field label="NAME" name="name" filled clearable color="grey darken-3"></v-text-field>
-                    <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3"></v-text-field>
-                    <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3"></v-textarea>
+                <v-form name="contact" method="POST" class="contact-form">
+                    <v-text-field label="NAME" name="name" filled clearable color="grey darken-3" required></v-text-field>
+                    <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3" required></v-text-field>
+                    <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3" required></v-textarea>
+                    <v-text-field v-model="botfield" label="人間は入力しないでください" v-show="false"></v-text-field>
                     <v-row justify="center">
                         <v-btn
                         x-large
                         class="send-btn"
-                        
+                        @click="submit"
                         >
                         SEND MESSAGE
                         </v-btn>
@@ -249,7 +249,11 @@ data(){
                 url:'https://mytodocards.netlify.app/',
                 github:'https://github.com/Se-Ya66/My-Todo'
             }
-        ]
+        ],
+        name: "",
+        email: "",
+        message: "",
+        botfield: "",
     }
 },
 mounted() {
@@ -271,12 +275,21 @@ methods: {
         const top = document.querySelector('.skills-wrapper').getBoundingClientRect().top;
         this.visible2 = top < window.innerHeight + 100;
         }
-        console.log(this.$el);
     },
-    change_class: function() {
-    this.isView = !this.isView
-}
-}
+    change_class() {
+        this.isView = !this.isView
+    },
+    async submit() {
+        const params = new FormData()
+        params.append('form-name', 'contact')
+        params.append('name', this.name)
+        params.append('email', this.email)
+        params.append('message', this.message)
+        params.append('bot-field', this.botfield)
+        const response = await this.$axios.$post(window.location.origin, params)
+        console.log(response)
+    }   
+    }
 }
 </script>
 
@@ -318,7 +331,6 @@ a{
 .header-enter-to {
     opacity: 1;
 }
-
 .text-enter-active {
     transition: opacity 3s;
 }
@@ -328,7 +340,6 @@ a{
 .text-enter-to {
     opacity: 1;
 }
-
 .name-enter-active {
     transition: opacity 2s;
 }
@@ -338,7 +349,6 @@ a{
 .name-enter-to {
     opacity: 1;
 }
-
 .img-enter-active, .img-leave-active {
     transform: translate(0px, 0px);
     transition: transform 1s cubic-bezier(0, 0, 0.2, 1) 0s;
@@ -346,7 +356,6 @@ a{
 .img-enter, .img-leave-to {
     transform: translateX(100vw) translateX(0px);
 }
-
 /* --------------------------------
 * parts
 * -------------------------------- */
@@ -378,7 +387,6 @@ a{
 /* --------------------------------
 * header
 * -------------------------------- */
-
 .header{
     width: 100%;
     height: 100vh;
@@ -642,7 +650,6 @@ a{
         line-height: 1.8;
     }
     /* --- works --- */
-
     .work-title{
         font-size:25px;
     }
