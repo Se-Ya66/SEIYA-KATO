@@ -38,8 +38,11 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/axios',
   ],
+  axios: {
+  },
   webfontloader: {
     google: {
       families: ['Josefin+Sans','Old+Standard+TT:ital@1','Montserrat:wght@300']
