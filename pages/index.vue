@@ -288,7 +288,14 @@ methods: {
         params.append('bot-field', this.botfield)
         const response = await this.$axios.$post(window.location.origin, params)
         console.log(response)
-    }   
+        this.resetForm();
+    },
+    resetForm() {
+        this.name = '';
+        this.email = '';
+        this.message = '';
+    }
+
     }
 }
 </script>
