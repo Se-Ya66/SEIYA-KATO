@@ -187,9 +187,9 @@
                     <h2 class="heading" id="contact">CONTACT</h2>
                 </div>
                 <div class="contact-form">
-                    <v-text-field label="NAME" name="name" filled clearable color="grey darken-3" required></v-text-field>
-                    <v-text-field label="E-mail" name="email" filled clearable color="grey darken-3" required></v-text-field>
-                    <v-textarea label="MESSAGE" name="message" filled clearable color="grey darken-3" required></v-textarea>
+                    <v-text-field label="NAME" v-model="name" filled clearable color="grey darken-3" required></v-text-field>
+                    <v-text-field label="E-mail" v-model="email" filled clearable color="grey darken-3" required></v-text-field>
+                    <v-textarea label="MESSAGE" v-model="message" filled clearable color="grey darken-3" required></v-textarea>
                     <v-text-field v-model="botfield" label="人間は入力しないでください" v-show="false"></v-text-field>
                     <v-row justify="center">
                         <v-btn
