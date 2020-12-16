@@ -403,12 +403,10 @@ a{
     background-size: cover;
 }
 .site-wrapper{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    position:absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
 }
 .site-title {
     text-transform:uppercase;
@@ -417,6 +415,7 @@ a{
     color:#fff;
     letter-spacing:6px;
     margin-bottom:10px;
+    
 }
 .site-description{
     color:#fff;
