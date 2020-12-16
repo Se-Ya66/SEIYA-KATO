@@ -403,9 +403,12 @@ a{
     background-size: cover;
 }
 .site-wrapper{
-    position:absolute;
-	left:37%;
-	top:40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 .site-title {
     text-transform:uppercase;
