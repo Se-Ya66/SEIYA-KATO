@@ -63,7 +63,7 @@
                     </v-row>
                 </v-toolbar-items>
             </v-container>
-    </v-app-bar>
+        </v-app-bar>
     </div>
 </template>
 
@@ -94,7 +94,6 @@ export default {
                 title:'CONTACT',
                 link:'#contact' 
             },
-        
         ],
         }
     },

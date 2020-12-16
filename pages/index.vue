@@ -118,7 +118,6 @@
                         </v-row>
                     </v-container>
                 </div>
-            
             </section>
             <section class="skills">
                 <div class="heading-wrapper">
@@ -295,7 +294,6 @@ methods: {
         this.email = '';
         this.message = '';
     }
-
     }
 }
 </script>
@@ -521,7 +519,6 @@ a{
 	background:#e2e1e2;
 	height:7px;
 	border-radius:3px;
-	
 }
 .skillbar-title {
 	position:absolute;
@@ -624,7 +621,6 @@ a{
     }
 }
 @media (max-width: 767px) {
-    
     .heading {
         margin-top: 20px;
         font-size: 1.5rem;
