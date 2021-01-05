@@ -603,26 +603,8 @@ a{
         background-position: center center;
         background-size: cover;
     }
-    .site-wrapper{
-        text-align: center;
-        position:absolute;
-        left:37%;
-        top:40%;
-    }
 }
 @media (max-width: 768px) {
-    
-    .header{
-        position: relative;
-    }
-    .site-wrapper{
-        text-align: center;
-        position:absolute;
-        left:30%;
-        top:40%;
-    }
-}
-@media (max-width: 767px) {
     .heading {
         margin-top: 20px;
         font-size: 1.5rem;
@@ -638,17 +620,11 @@ a{
         background-position: center center;
         background-size: cover;
     }
-    .site-wrapper{
-        text-align: center;
-        position:absolute;
-        left:25%;
-        top:40%;
-    }
     .site-description{
-        font-size: 13px;
+        font-size: 10px;
     }
     .site-title {
-        font-size: 26px;
+        font-size: 20px;
     }
     /* --- about --- */
     .about-text {
