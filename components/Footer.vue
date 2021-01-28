@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-footer color="black" >
+        <v-footer class="footer" >
             <v-container class="pa-6 text-center">
                 <v-row  class="icons" justify="center" align="center">
                     <v-col md="1" sm="1">
@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style>
+.footer{
+    background: linear-gradient(to top, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply;
+}
 a{
     text-decoration: none;
 }

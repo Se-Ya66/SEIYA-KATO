@@ -13,9 +13,11 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "nuxt-webfontloader": "^1.1.0",
+    "vue-carousel-3d": "^1.0.1",
     "vue-scrollto": "^2.19.1"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.2"
+    "@nuxtjs/vuetify": "^1.11.2",
+    "vue-particles": "^1.0.9"
   }
 }
