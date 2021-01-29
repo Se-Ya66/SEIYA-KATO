@@ -111,42 +111,41 @@
             </carousel-3d>
             <div v-for="(worklist, i) in worklists" :key="i">
                 <transition name="work">
-                    <v-card dark v-show="worklist.dialog" class="bg" @click="worklist.dialog = false">
-                        <v-card-title class="headline">
-                        <h1 class="work-title">{{worklist.title}}</h1>
-                        </v-card-title>
-                        <v-container>
-                            <v-row>
-                                <v-col md="6" cols="12">
-                                    <h4 class="work-item">Concept</h4>
-                                    <p class="work-description">{{worklist.description}}</p>
-                                    <h4 class="work-item">Skills</h4>
-                                    <p>{{worklist.Skills}}</p>
-                                    <h4 class="work-item">Site</h4>
-                                    <a :href="worklist.url" class="site-url">
-                                        <span>{{worklist.url}}</span>
-                                    </a>
-                                    <a :href="worklist.github">
-                                        <v-icon>mdi-github</v-icon>
-                                        <span class="github-link">GitHub</span>
-                                    </a>
-                                </v-col>
-                                <v-col md="6" cols="12">
-                                    <img :src='worklist.img' class="work-img">
-                                </v-col>
-                            </v-row>
-                        </v-container>
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn
+                    <div v-show="worklist.dialog" class="bg" @click="worklist.dialog = false">
+                        <div class="bg-inner">
+                            <h1 class="work-title">{{worklist.title}}</h1>
+                            <div class="close-btn">
+                                <v-icon
                                 color="white"
-                                text
                                 @click="worklist.dialog = false"
-                            >
-                                close
-                            </v-btn>
-                        </v-card-actions>
-                    </v-card>
+                                >
+                                    mdi-close
+                                </v-icon>
+                            </div>
+                            <v-container>
+                                <v-row justyfy="center" align="center" class="work-box">
+                                    <v-col cols="12" sm="12" md="6" lg="6">
+                                        <h4 class="work-item">Concept</h4>
+                                        <p class="work-description">{{worklist.description}}</p>
+                                        <h4 class="work-item">Skills</h4>
+                                        <p>{{worklist.Skills}}</p>
+                                        <h4 class="work-item">Site</h4>
+                                        <a :href="worklist.url" class="site-url">
+                                            <span>{{worklist.url}}</span>
+                                        </a>
+                                        <a :href="worklist.github">
+                                            <v-icon color="white">mdi-github</v-icon>
+                                            <span class="github-link">GitHub</span>
+                                        </a>
+                                    </v-col>
+                                    <v-col cols="12" sm="12" md="6" lg="6">
+                                        <img :src='worklist.img' class="work-img">
+                                    </v-col>
+                                </v-row>
+                            </v-container>
+                            
+                        </div>
+                    </div>
                 </transition>
             </div>
         </section>
@@ -404,18 +403,15 @@ methods: {
 </script>
 
 <style>
-
 a{
     color:#fff;
 }
 .v-btn{
-    /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Roboto', sans-serif;
 }
 #home {
     color: #fff;
     font-size: 1.4rem;
-    /* font-family: 'Montserrat', sans-serif;   */
     font-family: 'Roboto', sans-serif;
 }
 *, *::before, *::after {
@@ -440,7 +436,6 @@ a{
     min-width: 0.3em;
     animation: text-in .8s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards;
 }
-
 .non-active{
     opacity:0;
 }
@@ -656,7 +651,6 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    
 }
 .my-name{
     font-family: 'Roboto', sans-serif;
@@ -673,7 +667,9 @@ a{
     font-weight: 400;
     text-align: center;
 }
-
+.right-space{
+    background: url('../static/topme.jpg') center center /cover no-repeat;
+}
 /* --------------------------------
 * about
 * -------------------------------- */
@@ -723,11 +719,20 @@ a{
     width:100%;
     height:100vh;
     position: fixed;
-    left: 0;
-    top: 0;
+    top:0;
+    left:0;
     z-index:999;
     padding-top:10px;
-    
+    background: rgba(255,255,255,0.7);
+}
+.bg-inner{
+    width:100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: linear-gradient(to top, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply;
 }
 .card-title{
     padding:16px 30px;
@@ -736,6 +741,15 @@ a{
 	font-weight:bold;
 	text-transform:uppercase;
 	letter-spacing:2px;
+}
+.close-btn{
+    position:absolute;
+    top:0;
+    right:10px;
+    display: block;
+}
+.work-title{
+    margin-left:10px;
 }
 .work-description{
     font-weight:200;
@@ -960,14 +974,12 @@ a{
     height: 100vh;
     padding-top: 50%;
     position:absolute;
-    background: url('../static/topme.jpg') center center /cover no-repeat;
     z-index:997;
     top:0;
     right:0;
 }
 }
 @media (max-width: 768px) {
-    
     .left-space{
         transform:skew(0deg, -10deg);
         margin-top:-10%;
@@ -982,18 +994,17 @@ a{
         transform:skew(0deg, 10deg);
     }
     .my-name{
-        font-size:10vw;
+        font-size:11vw;
     }
     .welcome{
-        font-size:4vw;
+        font-size:5vw;
     }
     .site-copy{
-        font-size:10vw;
+        font-size:11vw;
     }
     .right-space{
         width:100%;
-        height:80vw;
-        background: url('../static/topme.jpg') center center /cover no-repeat;
+        height:100vw;
         margin-top: -70px;
     }
     .heading {
