@@ -1030,7 +1030,7 @@ a{
     .skill-list,
     .site-url,
     .github-link{
-        font-size:0.3rem;
+        font-size:0.6rem;
     }
     .close-btn{
         top:20px;
