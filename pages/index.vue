@@ -253,7 +253,7 @@ data(){
             {
                 title: 'SEIYA KATO',
                 dialog:false,
-                img: require('../static/nightmin.jpg'),
+                img: require('../static/topmin.jpg'),
                 description:'制作物を掲載するための媒体が必要と感じ、制作しました。レイアウトやデザインに関しては見やすさを追求しシンプルにまとめています。現在は最低限の機能しか実装していないため自身の技術力の向上と共にリッチ化を図るべく徐々に手を加えていけたらと思っています。',
                 Skills:'HTML /CSS /Nuxt.js /Vuetify /Netlify',
                 url:'https://seiyakato.netlify.app/',
@@ -292,8 +292,8 @@ data(){
                 img: require('../static/wedmin.jpg'),
                 description:'友人の挙式での使用のために作成。トップページのQRコードを読み取ると新郎新婦からのサンクスカードをダウンロードするページに遷移。',
                 Skills:'HTML /CSS /Nuxt.js /Vuetify /Netlify',
-                url:'https://mytodocards.netlify.app/',
-                github:'https://github.com/Se-Ya66/My-Todo'
+                url:'https://thankscard-provider.netlify.app/',
+                github:'https://github.com/Se-Ya66/thanks-card'
             },
         ],
         bars:[
