@@ -269,13 +269,13 @@ data(){
                 github:'https://github.com/Se-Ya66/NEOSOUL-SUGGESTER'
             },
             {
-                title:"MY Todo",
+                title:"hefpp",
                 dialog:false,
-                img: require('../static/todomin.jpg'),
-                description:'学習を通じて得たスキルを試す目的で制作しました。自身では初の制作物となるためVuetifyの各種UIコンポーネントの使用やFirebaseでのログイン、データの保管など苦労する点は多々ありましたが基礎は学べたと感じています。',
-                Skills:'HTML /CSS /Nuxt.js /Vuetify /Firebase /Netlify',
-                url:'https://mytodocards.netlify.app/',
-                github:'https://github.com/Se-Ya66/My-Todo'
+                img: require('../static/hefpptop.jpg'),
+                description:'生産者と加工メーカーをつなぐマッチングサービスで六次産業化を支援したいという思いで開発しました。APIも自身で作り、画像はAWSのS3にアップしています。',
+                Skills:'HTML /CSS /SCSS /Nuxt.js /Vuetify /AWS /Laravel /MySQL /Heroku',
+                url:'https://nuxt-hefpp.herokuapp.com/',
+                github:'https://github.com/Se-Ya66/hefpp'
             },
             {
                 title:"NEO-SOUL Reviews",
@@ -299,13 +299,13 @@ data(){
         bars:[
             {
                 title:'HTML/CSS',
-                figure:'44%',
+                figure:'62%',
                 class1:'skillbar-bar-html1',
                 class2:'skillbar-bar-html2',
             },
             {
                 title:'Vue.js',
-                figure:'35%',
+                figure:'56%',
                 class1:'skillbar-bar-vue1',
                 class2:'skillbar-bar-vue2',
             },
@@ -317,25 +317,25 @@ data(){
             },
             {
                 title:'PHP',
-                figure:'10%',
+                figure:'30%',
                 class1:'skillbar-bar-php1',
                 class2:'skillbar-bar-php2',
             },
             {
                 title:'MySQL',
-                figure:'10%',
+                figure:'30%',
                 class1:'skillbar-bar-mysql1',
                 class2:'skillbar-bar-mysql2',
             },
             {
                 title:'Photoshop',
-                figure:'10%',
+                figure:'20%',
                 class1:'skillbar-bar-mysql1',
                 class2:'skillbar-bar-mysql2',
             },
             {
                 title:'Illustarator',
-                figure:'10%',
+                figure:'20%',
                 class1:'skillbar-bar-mysql1',
                 class2:'skillbar-bar-mysql2',
             },
